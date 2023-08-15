@@ -1,0 +1,85 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('professores', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('disciplina');
+            $table->string('horas');
+            $table->string('matutino');
+            $table->string('vespertino');
+            $table->string('noturno');
+            $table->string('mseg11');
+            $table->string('mseg12');
+            $table->string('mseg13');
+            $table->string('mseg14');
+            $table->string('mseg15');
+            $table->string('mseg16');
+
+            $table->string('mter11');
+            $table->string('mter12');
+            $table->string('mter13');
+            $table->string('mter14');
+            $table->string('mter15');
+            $table->string('mter16');
+
+            $table->string('mqua11');
+            $table->string('mqua12');
+            $table->string('mqua13');
+            $table->string('mqua14');
+            $table->string('mqua15');
+            $table->string('mqua16');
+
+            $table->string('mqui11');
+            $table->string('mqui12');
+            $table->string('mqui13');
+            $table->string('mqui14');
+            $table->string('mqui15');
+            $table->string('mqui16');
+
+            $table->string('msex11');
+            $table->string('msex12');
+            $table->string('msex13');
+            $table->string('msex14');
+            $table->string('msex15');
+            $table->string('msex16');
+
+            $table->string('msab11');
+            $table->string('msab12');
+            $table->string('msab13');
+            $table->string('msab14');
+            $table->string('msab15');
+            $table->string('msab16');
+
+            $table->string('mdom11');
+            $table->string('mdom12');
+            $table->string('mdom13');
+            $table->string('mdom14');
+            $table->string('mdom15');
+            $table->string('mdom16');
+
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('professors');
+    }
+};
